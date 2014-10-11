@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Ajax2.aspx.cs" Inherits="MyApp.JQTable.Ajax.Ajax2" %>

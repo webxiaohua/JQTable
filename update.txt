@@ -1,0 +1,99 @@
+@Description:JTables Plugin v3.7
+@Author:Robin
+@Date:2014-09-19
+@Version:3.7
+
+更新内容：
+①新增合并列功能，新增三个参数 bHaveParent->表示是否合并列;  parentColumnName->合并列对应的父级ID（bool类型）; oMergeCols->待合并的列
+②新增参数bPageInBox,true表示页码放在容器内部，false表示页码放在容器外部
+③折叠行效果
+④新增fnBeforeCallback参数，为回调函数之前触发，兼容以前版本，同时传递Ajax数据返回对象
+⑤新增参数bshowCaption、captionContent,用来增加表格标题
+⑥新增参数bHoverColor 标记是否具有移动到行上变色的功能
+⑦新增“锁”功能，防止多次刷新表格产生重复数据
+
+插件使用说明：
+bshowCaption:true->显示表格标题；false->不显示表格标题  默认false
+captionContent:  ->表格标题内容，默认为null
+showTH:      true->没有数据的时候会显示表头；false->没有数据的时候不显示表头
+dataSource： 数据源，不需要发起Ajax请求就只能能用的数据源，常常作为初始化数据使用
+sAjaxSource: Ajax数据源，就是提交处理的Handler地址或者WebService方法
+sAjaxParams: 参数，对象类型，可以传递到处理函数里面
+fnBeforeCallback: 函数，调用回调函数之前 可以对返回值进行处理，参数为Ajax返回值
+fnCallback:  回调函数，表格数据加载完成之后执行
+aoColumns:   列数据，对象数组类型，包括的参数： cName  cText cSort fnRender cClass
+bSelectAll:  是否有全选功能，bool类型
+bSelectCol:  如果有全选功能，则需要提供ID
+bShowPage:   是否显示页码
+oPageIndex:  页码，默认显示第一页数据，数字类型
+oPageSize:   每页显示的数据条数，默认一页5条数据，数字类型
+oSortType:   默认排序类别，默认没有，string类型
+oSortCol:    默认排序列，默认没有,string类型
+bProcessing: 是否启用等待功能，即加载数据的过程会出现一个waiting图片
+mask_height: Mask 界面的高度
+bSelectPageSize: 是否带选择每页的数据量
+bLockTableHead: 是否锁表头  true  false
+lockTHScrollC: 锁定表头之后滚动监听的容器对象，默认是window对象
+bLockTable: false, //是否锁表（包含表头和列头）
+oLockTableParms: [0, 0, 0], //锁表头参数[锁定几列，容器宽度，容器高度]
+oMergeCells : 数组，标记需要对哪些列进行合并操作 
+bHaveParent: false, //处理是否带父级元素的数据
+parentColumnName: "", //父级元素的列名
+oMergeCols: [0, 0], //合并列 begin-length
+bHoverColor: true, //标记是否移动到行上变色
+oLanguage:   语言类型  zh-cn , en-us 
+
+调用举例：
+ $(function () {
+            var datasource = { "PageIndex": 1, "PageSize": 5, "DataCount": 215, "SortType": "desc", "SortCol": "UserName", "DataList": [{ "UserId": 123, "UserStatus": "正常", "WorkArea": "上海", "WorkAge": 5, "UserSex": "男", "UserAge": 23, "UserName": "张三" }, { "UserId": 456, "UserStatus": "正常", "WorkArea": "北京", "WorkAge": 5, "UserSex": "男", "UserAge": 23, "UserName": "李四" }, { "UserId": 123, "UserStatus": "正常", "WorkArea": "上海", "WorkAge": 5, "UserSex": "男", "UserAge": 23, "UserName": "张三" }, { "UserId": 456, "UserStatus": "正常", "WorkArea": "北京", "WorkAge": 5, "UserSex": "男", "UserAge": 23, "UserName": "李四" }, { "UserId": 123, "UserStatus": "正常", "WorkArea": "上海", "WorkAge": 5, "UserSex": "男", "UserAge": 23, "UserName": "张三"}] };
+            var userId; //操做主ID
+            $("#divBrowse").JTables({
+                dataSource: datasource,
+                sAjaxSource: "Ajax/Ajax.aspx",
+                sAjaxParams: { "A": "AA", "B": "BB" },
+                aoColumns: [
+                    {
+                        "cName": "UserId",
+                        "cHide": true,
+                        "fnRender": function (obj) {
+                            userId = obj;
+                        }
+                    },
+                    {
+                        "cName": "UserName",
+                        "cText": "姓名",
+                        "fnRender": function (obj) {
+                            return "<a href=\"" + userId + "\">" + obj + "</a>";
+                        },
+                        "cSort": true
+                    },
+                    { "cName": "UserAge", "cText": "年龄", "cSort": true, "cHide": false },
+                    { "cName": "UserSex", "cText": "性别", "cSort": true, "cClass": "test" },
+                    { "cName": "WorkAge", "cText": "工龄", "cSort": true },
+                    { "cName": "WorkArea", "cText": "工作地点", "cSort": true },
+                    { "cName": "UserStatus", "cText": "用户状态", "cSort": false },
+                    {
+                        "cText": "操作",
+                        "cSort": false,
+                        "fnRender": function (obj) {
+                            return "<a href=\"javascript:alert(" + userId + ")\" >删除</a>";
+                        }
+                    }
+                ],
+                bSelectAll: true,
+                bSelectCol: "UserId", //选定的ID
+                bShowPage: true, //不显示分页
+                fnCallback: function () {
+
+                },
+                oPageSize: 30,
+                oSortType: "desc",
+                oSortCol: "UserName",
+                bProcessing: true,
+                mask_height: "100px",
+                bSelectPageSize: true,
+                bLockTableHead: true,
+                lockTHScrollC: window,
+                oLanguage: "zh_cn"
+            });
+        })

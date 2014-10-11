@@ -1,0 +1,230 @@
+﻿.M_DivHeader
+{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #3399ff;
+    height: 38px;
+}
+.M_DivHeader_Icon
+{
+    width: 16px;
+    height: 16px;
+    background: url('../img/ic_grid.png') no-repeat;
+    margin-top: 11px;
+    margin-left: 11px;
+    position: absolute;
+}
+.M_DivTable
+{
+    /*border: 1px solid #3399ff;*/
+    border-top: 0px;
+    background-color: #F9F9F9;
+}
+.M_DivHeader_Title
+{
+    position: absolute;
+    margin-top: 12px;
+    margin-left: 38px;
+    line-height: 16px;
+    vertical-align: middle;
+    font-weight: bold;
+    color: #ffffff;
+}
+.M_Table
+{
+    border: solid 1px #eaeaea;
+    min-width: 800px;
+    width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.M_Tbody
+{
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.M_Table tr.hover
+{
+    background: #ccc;
+}
+.M_Tbody > tr
+{
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+/*
+th, [class*="block"] .M_Table tr td
+{
+    border-right: 1px solid #ddd;
+}
+[class*="block"] .M_Table tr th
+{
+    padding: 4px 8px;
+    font-size: 10pt;
+    background-color: #F1F1F1;
+    color: #666;
+}*/
+.M_Table th, .M_Table td
+{
+    line-height: 20px;
+    text-align: left;
+    vertical-align: middle;
+    border-top: 1px solid #dddddd;
+    color: #666;
+    border-right: 1px solid #ddd;
+}
+.M_Table tr th:last-child, .M_Table tr td:last-child
+{
+    border-right: 0px;
+}
+.M_Table th
+{
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 4px 8px;
+}
+.M_Table td
+{
+    padding: 4px 8px;
+}
+.M_tablesorting
+{
+    cursor: pointer;
+    background-image: url("../img/sort_both.png");
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+}
+.M_tablesortingasc
+{
+    cursor: pointer;
+    background-image: url("../img/sort_asc.png");
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+}
+.M_tablesortingdesc
+{
+    cursor: pointer;
+    background-image: url("../img/sort_desc.png");
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+}
+/*
+.paginate_button
+{
+    color: #335A85;
+    text-decoration: none;
+}
+paginate_button:hover
+{
+    color: #005580;
+    text-decoration: underline;
+}
+*/
+.M_pagination
+{
+    margin-top: 20px;
+    float: right;
+    margin: 20px 10px;
+}
+.M_pagination a, .M_pagination span
+{
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 0px;
+}
+.M_pagination span
+{
+*margin-bottom:8px;
+}
+.M_pagination a
+{
+    text-decoration: none;
+    border: 1px solid #ccc;
+    color: #666;
+    padding: 5px 5px;
+    font-size: 12px;
+    margin-right: 2px;
+}
+.M_pagination a:hover
+{
+    background-color: #26B;
+    color: #fff;
+}
+.M_pagination #current
+{
+    background: #26B;
+    color: #fff;
+    border: 1px solid #AAE;
+}
+.M_pagination select
+{
+    width: 60px;
+    height: 26px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 4px 6px;
+    margin-bottom: 1px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555555;
+    vertical-align: middle;
+}
+.jqMyTable_floatTH
+{
+    top: 0px;
+    position: fixed;
+    z-index: 1900;
+    display: none;
+    background-color: #74BAF9;
+}
+.M_Table_TH
+{
+    border: solid 1px #eaeaea;
+    min-width: 800px;
+    width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.M_Tbody_TH
+{
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.M_Tbody_TH > tr
+{
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.M_Tbody_TH th
+{
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 4px 8px;
+    line-height: 20px;
+    vertical-align: middle;
+    border-top: 1px solid #dddddd;
+    color: #666;
+    border-right: 1px solid #ddd;
+}
